@@ -9,10 +9,18 @@ export class LoanService {
   constructor() { }
 
   addBook(book: Book): void {
+    // J'ai ajouter une vérification si un livre avec le même id existe déjà
+    if (this.books.has(book.id)) {
+      throw new Error("Book already exists");
+    }
     this.books.set(book.id, book);
   }
 
   addUser(user: User): void {
+    // J'ai ajouter une vérification si un user avec le même id existe déjà
+    if (this.users.has(user.id)) {
+      throw new Error("User already exists");
+    }
     this.users.set(user.id, user);
   }
 
